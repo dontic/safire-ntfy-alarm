@@ -1,2 +1,32 @@
 # safire-ntfy-alarm
 Create an alarm server for Safire cameras that send a NTFY push notification to your phone
+
+
+## Deployment
+
+1. Clone the repo
+
+```bash
+git clone ...
+```
+
+2. Copy `.env.template` to `.env` and change the ntfy secrets
+
+```bash
+cp .env.template .env
+nano .env
+```
+
+2. Build the container
+
+```bash
+docker build -t safire-ntfy .
+```
+
+3. Run the container with environment variables
+```bash
+docker run -p 5000:5000 \
+  --env-file .env \
+  safire-ntfy
+```
+
