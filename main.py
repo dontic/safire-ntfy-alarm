@@ -2,6 +2,8 @@
 
 import os
 from http.server import HTTPServer, BaseHTTPRequestHandler
+import signal
+import sys
 import xml.etree.ElementTree as ET
 import requests
 import json
@@ -143,11 +145,30 @@ class AlarmHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(response).encode())
 
 
+def signal_handler(signum, frame):
+    """Handle shutdown signals gracefully"""
+    print("\nShutting down server...")
+    sys.exit(0)
+
+
 def run_http_server():
     PORT = 5000
     server = HTTPServer(("0.0.0.0", PORT), AlarmHandler)
     print(f"Server started on port {PORT}")
     server.serve_forever()
+
+    # Set up signal handlers
+    signal.signal(signal.SIGINT, signal_handler)  # Handle Ctrl+C
+    signal.signal(signal.SIGTERM, signal_handler)  # Handle termination signal
+
+    print(f"Server started on port {PORT}")
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\nShutting down server...")
+    finally:
+        server.server_close()
+        print("Server stopped.")
 
 
 if __name__ == "__main__":
