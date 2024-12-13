@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config version="1.7" xmlns="http://www.ipc.com/ver10">
+<alarmStatusInfo>
+<motionAlarm type="boolean" id="1">true</motionAlarm>
+<perimeterAlarm type="boolean" id="1">false</perimeterAlarm>
+<tripwireAlarm type="boolean" id="1">false</tripwireAlarm>
+<humanMotionAlarm type="boolean" id="1">false</humanMotionAlarm>
+<vehicleMotionAlarm type="boolean" id="1">false</vehicleMotionAlarm>
+</alarmStatusInfo>
+<dataTime><![CDATA[2024-12-11 19:38:17]]></dataTime>
+<deviceInfo>
+<deviceName><![CDATA[IPC]]></deviceName>
+<deviceNo.><![CDATA[1]]></deviceNo.>
+<sn><![CDATA[A0B0C0V12345]]></sn>
+<ipAddress><![CDATA[192.168.1.2]]></ipAddress>
+<macAddress><![CDATA[aa:bb:cc:dd:ee:ff]]></macAddress>
+</deviceInfo>
+</config>
